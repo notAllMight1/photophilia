@@ -3,9 +3,11 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, HttpResponseRedirect
 from .models import Photo, Comment, Like
 from .forms import PhotoForm, CommentForm
+from django.urls import reverse
+from django.contrib import messages
 
 def index(request):
     featured_photos = Photo.objects.order_by('-uploaded_at')[:6]  # Display the latest 6 photos
@@ -21,7 +23,7 @@ def photo_detail(request, photo_id):
     liked = False
     if request.user.is_authenticated:
         liked = Like.objects.filter(photo=photo, user=request.user).exists()
-    return render(request, 'gallery_single.html', {
+    return render(request, 'gallery-single.html', {
         'photo': photo, 'comments': comments, 'liked': liked
     })
 
@@ -85,3 +87,33 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+@login_required
+def user_uploads(request):
+    user_photos = Photo.objects.filter(uploaded_by=request.user)
+    return render(request, 'user_uploads.html', {'photos': user_photos})
+
+@login_required
+def photo_delete(request, photo_id):
+    photo = get_object_or_404(Photo, id=photo_id, uploaded_by=request.user)
+    if request.method == 'POST':
+        photo.delete()
+        return redirect('user_uploads')
+    return render(request, 'photo_confirm_delete.html', {'photo': photo})
+
+
+@login_required
+def edit_caption(request, photo_id):
+    photo = get_object_or_404(Photo, id=photo_id, uploaded_by=request.user)
+
+    if request.method == 'POST':
+        new_caption = request.POST.get('caption')
+        if new_caption:
+            photo.caption = new_caption
+            photo.save()
+            messages.success(request, 'Caption updated successfully!')
+            return redirect('user_uploads')
+        else:
+            messages.error(request, 'Caption cannot be empty.')
+
+    return render(request, 'edit_caption.html', {'photo': photo})

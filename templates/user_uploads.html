@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Your Uploads - Photo Sharing App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Your Uploaded Photos</h2>
+    <div class="row">
+        {% for photo in photos %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ photo.image.url }}" class="card-img-top" alt="Photo">
+                <div class="card-body">
+                    <h5 class="card-title">{{ photo.caption }}</h5>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'edit_caption' photo.id %}" class="btn btn-warning btn-sm">Edit Caption</a>
+                        <a href="{% url 'photo_delete' photo.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">You haven't uploaded any photos yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

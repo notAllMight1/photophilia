@@ -1,12 +1,31 @@
-
 {% extends 'base.html' %}
-{% block title %}Upload Photo{% endblock %}
+{% load static %}
+
+{% block title %}Upload Photo - PhotoPhilia{% endblock %}
 
 {% block content %}
-<h2>Upload a New Photo</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Upload</button>
-</form>
+<div class="container mt-5">
+    <h2 class="text-center">Upload Your Photo</h2>
+    <form id="uploadForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="photoInput" class="form-label">Select Photo</label>
+            <div id="dropArea" class="drop-area">
+                <p>Drag & drop your photo here, or click to select one</p>
+                <input type="file" id="photoInput" name="image" accept="image/*" class="form-control" required>
+            </div>
+        </div>
+        <div id="previewContainer" class="mb-3">
+            <img id="previewImage" src="#" alt="Image Preview" style="display:none; max-width: 100%; height: auto;">
+        </div>
+        <div class="mb-3">
+            <input type="text" name="caption" class="form-control" placeholder="Add a caption" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Upload Photo</button>
+    </form>
+    <div id="progressWrapper" style="display:none;">
+        <label for="progressBar">Uploading...</label>
+        <progress id="progressBar" value="0" max="100" style="width: 100%;"></progress>
+    </div>
+</div>
 {% endblock %}

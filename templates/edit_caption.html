@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Caption - PhotoPhilia{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Edit Caption</h2>
+    <div class="card mx-auto" style="max-width: 500px;">
+        <img src="{{ photo.image.url }}" class="card-img-top" alt="Photo">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="caption" class="form-label">New Caption</label>
+                    <input type="text" name="caption" id="caption" class="form-control" value="{{ photo.caption }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Update Caption</button>
+                <a href="{% url 'user_uploads' %}" class="btn btn-secondary w-100 mt-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

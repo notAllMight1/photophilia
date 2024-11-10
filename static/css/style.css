@@ -1,0 +1,184 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  padding-top: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.navbar {
+  background-color: #007bff;
+}
+
+.navbar .nav-link {
+  color: black !important;
+}
+
+.navbar .nav-link:hover {
+  color: #0056b3 !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Jumbotron Styles */
+.jumbotron {
+  background: url('') no-repeat center center/cover;
+  color: black;
+  padding: 60px 20px;
+  border-radius: 8px;
+}
+
+.jumbotron h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 1.2em;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+/* Featured Photos Grid */
+.featured-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.featured-photo-card {
+  flex: 0 1 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+}
+
+@media (max-width: 768px) {
+  .featured-photo-card {
+      flex: 0 1 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .featured-photo-card {
+      flex: 0 1 100%;
+      max-width: 100%;
+  }
+}
+
+/* Footer Styles */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer a {
+  color: #ffc107;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Form Styles */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+.drop-area {
+  border: 2px dashed #007bff;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drop-area:hover {
+  background-color: #e9f5ff;
+}
+
+#previewImage {
+  max-height: 300px;
+  margin-top: 20px;
+  border: 2px solid #007bff;
+  padding: 5px;
+}

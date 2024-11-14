@@ -1,7 +1,16 @@
+/* Color Palette */
+:root {
+  --verdigris: #4cb5aeff;
+  --periwinkle: #dac4f7ff;
+  --salmon-pink: #f4989cff;
+  --dun: #ebd2b4ff;
+  --quinacridone-magenta: #7b435bff;
+}
+
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: var(--dun);
   color: #333;
   padding-top: 20px;
 }
@@ -12,43 +21,109 @@ body {
   padding: 20px;
 }
 
+/* Navbar Styles */
 .navbar {
-  background-color: #007bff;
+  background-color: var(--verdigris);
 }
 
 .navbar .nav-link {
-  color: black !important;
+  color: #fff !important;
 }
 
 .navbar .nav-link:hover {
-  color: #0056b3 !important;
+  color: var(--quinacridone-magenta) !important;
 }
 
-/* Buttons */
-.btn-primary {
-  background-color: #007bff;
+/* Primary Button - Verdigris */
+.btn-custom-primary {
+  background-color: var(--verdigris);
+  color: var(--dun);
   border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
+.btn-custom-primary:hover {
+  background-color: #389591; /* Darker shade of Verdigris */
 }
 
-.btn-secondary {
-  background-color: #6c757d;
+/* Secondary Button - Periwinkle */
+.btn-custom-secondary {
+  background-color: var(--periwinkle);
+  color: #fff;
   border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
 }
 
-.btn-secondary:hover {
-  background-color: #5a6268;
+.btn-custom-secondary:hover {
+  background-color: #bba7e5; /* Darker shade of Periwinkle */
 }
+
+/* Danger/Action Button - Salmon Pink */
+.btn-custom-danger {
+  background-color: var(--salmon-pink);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-custom-danger:hover {
+  background-color: #e77c7c; /* Darker shade of Salmon Pink */
+}
+
+/* Neutral Button - Dun */
+.btn-custom-neutral {
+  background-color: var(--dun);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-custom-neutral:hover {
+  background-color: #c5a27d; /* Darker shade of Dun */
+}
+
+/* Special Button - Quinacridone Magenta */
+.btn-custom-special {
+  background-color: var(--quinacridone-magenta);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-custom-special:hover {
+  background-color: #62344c; /* Darker shade of Quinacridone Magenta */
+}
+
+/* Liked Button */
+.liked {
+  background-color: #62344c; /* Darker shade of Quinacridone Magenta */
+  color: #fff;
+}
+
+
 
 /* Jumbotron Styles */
 .jumbotron {
-  background: url('') no-repeat center center/cover;
-  color: black;
+  background: var(--dun);
+  color: var(--quinacridone-magenta);
   padding: 60px 20px;
   border-radius: 8px;
+  text-align: center;
 }
 
 .jumbotron h1 {
@@ -64,7 +139,7 @@ body {
 .card {
   border: none;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -80,16 +155,17 @@ body {
 
 .card-body {
   text-align: center;
+  background-color: var(--periwinkle);
 }
 
 .card-title {
   font-size: 1.1em;
   font-weight: bold;
-  margin-bottom: 10px;
+  color: var(--quinacridone-magenta);
 }
 
 .card-text {
-  color: #6c757d;
+  color: var(--salmon-pink);
 }
 
 /* Featured Photos Grid */
@@ -107,32 +183,32 @@ body {
 
 @media (max-width: 768px) {
   .featured-photo-card {
-      flex: 0 1 calc(50% - 20px);
-      max-width: calc(50% - 20px);
+    flex: 0 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 576px) {
   .featured-photo-card {
-      flex: 0 1 100%;
-      max-width: 100%;
+    flex: 0 1 100%;
+    max-width: 100%;
   }
 }
 
 /* Footer Styles */
 footer {
-  background-color: #343a40;
+  background-color: var(--verdigris);
   color: #fff;
   padding: 20px 0;
   text-align: center;
 }
 
 footer a {
-  color: #ffc107;
+  color: var(--salmon-pink);
 }
 
 footer a:hover {
-  color: #fff;
+  color: var(--quinacridone-magenta);
 }
 
 /* Form Styles */
@@ -149,23 +225,25 @@ textarea {
   padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--verdigris);
 }
 
 input[type="submit"] {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: var(--quinacridone-magenta);
   color: #fff;
   border: none;
 }
 
 input[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: var(--verdigris);
 }
+
+/* Drop Area Styles */
 .drop-area {
-  border: 2px dashed #007bff;
+  border: 2px dashed var(--verdigris);
   padding: 20px;
   text-align: center;
   cursor: pointer;
@@ -173,12 +251,64 @@ input[type="submit"]:hover {
 }
 
 .drop-area:hover {
-  background-color: #e9f5ff;
+  background-color: var(--periwinkle);
 }
 
 #previewImage {
   max-height: 300px;
   margin-top: 20px;
-  border: 2px solid #007bff;
+  border: 2px solid var(--verdigris);
   padding: 5px;
+}
+
+/* Additional Animations */
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--quinacridone-magenta);
+}
+
+.navbar-toggler-icon {
+  background-color: var(--salmon-pink);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--verdigris);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--quinacridone-magenta);
+}
+
+.image-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-height-image {
+  width: 100%;
+  height: auto;
+  max-height: 90vh; /* Ensure it does not overflow the viewport height */
+}
+
+.comments-section {
+  max-height: 300px;
+  overflow-y: auto;
+}
+/* Custom CSS */
+.input-group .form-control, 
+.input-group .btn {
+    height: auto;
 }

@@ -1,0 +1,38 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# Database
+db.sqlite3
+*.sqlite3
+
+# Media files
+media/
+
+# Static files
+static/
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# IDE/editor files (Optional, based on your editor)
+.vscode/
+.idea/
+*.swp
+
+# Log files
+*.log
+
+# Django secret key (never store this in git)
+*.env
+
+# .DS_Store (macOS specific)
+.DS_Store
